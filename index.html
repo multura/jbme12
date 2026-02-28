@@ -226,6 +226,21 @@ var threshold = window.innerHeight * 0.4; // 40% threshold
     sheet.style.transform = "translateY(0)";
   }
 });
+
+var circleBtn = document.querySelector(".circle-btn");
+
+/* Detect iOS 12 */
+function isIOS12() {
+  var ua = navigator.userAgent;
+  var match = ua.match(/OS (\d+)_/i);
+  return match && match[1] === "12";
+}
+
+if (!isIOS12()) {
+  circleBtn.textContent = "unsupported";
+  circleBtn.style.cursor = "not-allowed";
+  circleBtn.disabled = true;
+}
 </script>
 
 </body>
